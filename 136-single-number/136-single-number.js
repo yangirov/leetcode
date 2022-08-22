@@ -3,17 +3,11 @@
  * @return {number}
  */
 var singleNumber = function(nums) {
-    let map = {}
+    let number = 0;
     
-    for (let i of nums) {
-        if (!map[i])
-            map[i] = 1;
-        else 
-            map[i] += 1
+    for (let i = 0; i < nums.length; i++) {
+        number ^= nums[i];
     }
     
-    for (const [k, v] of Object.entries(map)) {
-        if (v === 1)
-            return k;
-    }
+    return number;
 };
